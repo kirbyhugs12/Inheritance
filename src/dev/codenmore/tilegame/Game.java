@@ -11,6 +11,7 @@ import dev.codenmore.tilegame.states.GameState;
 import dev.codenmore.tilegame.states.MenuState;
 import dev.codenmore.tilegame.states.SettingState;
 import dev.codenmore.tilegame.states.State;
+import dev.codenmore.tilegame.states.jazzPRoomState;
 import dev.codenmore.tilegame.states.jazzState;
 import dev.codenmore.tilegame.states.mansionArcadeState;
 import dev.codenmore.tilegame.states.mansionGardenState;
@@ -42,6 +43,7 @@ public class Game implements Runnable {
 	public State mansionArcadeState;
 	public State mansionStudyState;
 	public State mansionGardenState;
+	public State jazzPRoomState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -83,6 +85,7 @@ public class Game implements Runnable {
 		mansionGardenState = new mansionGardenState(handler);
 		mansionArcadeState = new mansionArcadeState(handler);
 		mansionStudyState = new mansionStudyState(handler);
+		jazzPRoomState = new jazzPRoomState(handler);
 		State.setState(menuState);
 	}
 
