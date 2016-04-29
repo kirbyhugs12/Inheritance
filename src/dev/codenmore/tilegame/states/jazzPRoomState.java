@@ -18,7 +18,7 @@ public class jazzPRoomState extends State {
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
-		if(handler.getMouseManager().getMouseX() > 20 && handler.getMouseManager().getMouseX() < 80 && handler.getMouseManager().getMouseY() > 420 && handler.getMouseManager().getMouseY() < 470 && handler.getMouseManager().isLeftPressed()) {
+		if(handler.getMouseManager().getMouseX() > 10 && handler.getMouseManager().getMouseX() < 70 && handler.getMouseManager().getMouseY() > 10 && handler.getMouseManager().getMouseY() < 60 && handler.getMouseManager().isLeftPressed()) {
 			State.setState(handler.getGame().mapState);
 		}
 	}
@@ -28,7 +28,7 @@ public class jazzPRoomState extends State {
 		// TODO Auto-generated method stub
 		mapIcon = ImageLoader.loadImage("/textures/mapIcon.png");
 		mapIcon = resize(mapIcon,60,50);
-		g.drawImage(mapIcon, 20, 420,null);
+		g.drawImage(mapIcon, 10, 10,null);
 	}
 	
 	public BufferedImage resize(BufferedImage img, int newW, int newH) { 
