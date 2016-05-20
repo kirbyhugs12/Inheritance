@@ -13,6 +13,7 @@ import dev.codenmore.tilegame.gfx.ImageLoader;
 
 public class mansionArcadeState extends State{
 	private BufferedImage mapIcon;
+	private BufferedImage arcade;
 	private BufferedImage rightArrow;
 	private BufferedImage leftArrow;
 	private BufferedImage upArrow;
@@ -44,6 +45,9 @@ public class mansionArcadeState extends State{
 		g.setFont(fnt0);
 		g.setColor(Color.black);
 		g.drawString("Arcade", 30, 720);
+		arcade = ImageLoader.loadImage("/textures/arcade.png");
+		arcade = resize(arcade, 1000,730);
+		g.drawImage(arcade, 0,0,null);
 		mapIcon = ImageLoader.loadImage("/textures/mapIcon.png");
 		mapIcon = resize(mapIcon,90,75);
 		g.drawImage(mapIcon, 10, 10, null);
