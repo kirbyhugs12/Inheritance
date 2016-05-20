@@ -1,6 +1,8 @@
 package dev.codenmore.tilegame;
 
+import java.awt.Color;
 import java.awt.Graphics;
+
 
 import java.awt.image.BufferStrategy;
 
@@ -116,7 +118,16 @@ public class Game implements Runnable {
 		if (State.getState() != null) {
 			State.getState().render(g);
 		}
-
+		if(State.getState()!= mapState && State.getState()!=menuState){
+		g.setColor(Color.white);
+		g.fillRect(0, handler.getHeight()-70, handler.getWidth(), 70);
+		g.setColor(Color.black);
+		g.drawRect(0, handler.getHeight()-70, handler.getWidth(), 70);
+		g.drawLine(handler.getWidth()/5, handler.getHeight()-70, handler.getWidth()/5, handler.getHeight());
+		g.drawLine(2*handler.getWidth()/5, handler.getHeight()-70, 2*handler.getWidth()/5, handler.getHeight());
+		g.drawLine(3*handler.getWidth()/5, handler.getHeight()-70, 3*handler.getWidth()/5, handler.getHeight());
+		g.drawLine(4*handler.getWidth()/5, handler.getHeight()-70, 4*handler.getWidth()/5, handler.getHeight());
+		}
 		// End Drawing!
 		bs.show();
 		g.dispose();
