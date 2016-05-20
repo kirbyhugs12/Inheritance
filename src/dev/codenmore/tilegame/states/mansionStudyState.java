@@ -1,5 +1,8 @@
 package dev.codenmore.tilegame.states;
 
+import java.awt.Color;
+
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -10,6 +13,13 @@ import dev.codenmore.tilegame.gfx.ImageLoader;
 
 public class mansionStudyState extends State{
 	private BufferedImage mapIcon;
+	private BufferedImage rightArrow;
+	private BufferedImage leftArrow;
+	private BufferedImage upArrow;
+	private BufferedImage study;
+	private Font fnt0;
+	
+	
 	public mansionStudyState(Handler handler) {
 		super(handler);
 		// TODO Auto-generated constructor stub
@@ -21,14 +31,35 @@ public class mansionStudyState extends State{
 		if(handler.getMouseManager().getMouseX() > 10 && handler.getMouseManager().getMouseX() < 70 && handler.getMouseManager().getMouseY() > 10 && handler.getMouseManager().getMouseY() < 60 && handler.getMouseManager().isLeftPressed()) {
 			State.setState(handler.getGame().mapState);
 		}
+		if(handler.getMouseManager().getMouseX() > 850 && handler.getMouseManager().getMouseX() < 1000 && handler.getMouseManager().getMouseY() > 350 && handler.getMouseManager().getMouseY() < 450 && handler.getMouseManager().isLeftPressed()) {
+			State.setState(handler.getGame().mansionGardenState);
+			
+		}
+		if(handler.getMouseManager().getMouseX() > 0 && handler.getMouseManager().getMouseX() < 150 && handler.getMouseManager().getMouseY() > 350 && handler.getMouseManager().getMouseY() < 450 && handler.getMouseManager().isLeftPressed()) {
+			State.setState(handler.getGame().mansionArcadeState);
+			
+		}
 	}
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+		study = ImageLoader.loadImage("/textures/study1.png");
+		g.drawImage(study, 0,0, null);
+		
+		fnt0 = new Font("arial", Font.BOLD, 40);
+		g.setFont(fnt0);
+		g.setColor(Color.black);
+		g.drawString("Study", 30, 720);
 		mapIcon = ImageLoader.loadImage("/textures/mapIcon.png");
-		mapIcon = resize(mapIcon,60,50);
+		mapIcon = resize(mapIcon,90,75);
 		g.drawImage(mapIcon, 10, 10, null);
+		rightArrow = ImageLoader.loadImage("/textures/rightarrow.png");
+		g.drawImage(rightArrow, 850, 300,null);
+		leftArrow = ImageLoader.loadImage("/textures/leftarrow.png");
+		g.drawImage(leftArrow, 15, 300,null);
+		upArrow = ImageLoader.loadImage("/textures/uparrow.png");
+		g.drawImage(upArrow, 450, 5,null);
+		
 	}
 
 	public BufferedImage resize(BufferedImage img, int newW, int newH) { 
